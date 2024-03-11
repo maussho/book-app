@@ -33,7 +33,7 @@ return new class extends Migration
         });
 
 
-
+        // Creamos la relacion muchos a muchos, para ello utilizamos una tercera tabla con los id de ambos
         Schema::create('book_user', function (Blueprint $table) {
             $table->id();
 

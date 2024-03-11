@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('full_name', 75);
             $table->string('code', 15);
             $table->date('birth_date');
-            $table->string('country', 35)->nullable();
+            $table->string('country', 90)->nullable();
 
             $table->unsignedBigInteger('profile_id');
             $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
