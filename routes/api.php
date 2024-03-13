@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\API\ApiBookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+//hacemos referencia al controllador api
+use App\Http\Controllers\API\ApiEditorialController;
+use Doctrine\DBAL\Schema\Index;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+// creamos la ruta para la api
+Route::get('/editorials', [ApiEditorialController::class, 'index']);
+
+Route::get('/books', [ApiBookController::class, 'index']);
