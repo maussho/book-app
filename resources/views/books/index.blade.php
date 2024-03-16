@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <title>LIBROS</title>
 </head>
 <body>
     <h2>Libros</h2>
     <h3>Aqui se muestran todos los libros</h3>
+    <a href="/books/create" class="button">Nuevo libro</a>
     <table>
         <tr class="titulo">
             <td>Titulo</td>
@@ -17,6 +18,7 @@
             <td>Genero</td>
             <td>Editorial</td>
             <td>Precio</td>
+            <td>Acción</td>
         </tr>
 
         @foreach ($books as $book)
@@ -30,11 +32,29 @@
                 <td>{{$book->gender->name}}</td>
                 <td>{{$book->editorial->name}}</td>
                 <td>{{$book->price}}</td>
+                <td><a href="/books/edit/{{$book->id}}">editar</a></td>
             </tr>
         @endforeach
     </table>
     <style>
+a.button {
+  margin: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+/* Estilo para el botón en estado 'hover' */
+a.button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
 /* Estilos para el body */
 body {
   font-family: Arial, sans-serif; /* Tipo de fuente */

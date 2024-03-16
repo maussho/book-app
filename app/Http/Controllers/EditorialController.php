@@ -30,7 +30,8 @@ class EditorialController extends Controller
      */
     public function create()
     {
-        //
+        // retornamos una vista llamado create.blade.php y creamos la vista en view
+        return view('editorials.create');
     }
 
     /**
@@ -41,7 +42,17 @@ class EditorialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // creammos un nuevo objeto utilizando eloquent ORM
+        $editorial = new Editorial();
+        $editorial->name = $request->name;
+        $editorial->address = $request->address;
+        $editorial->phone = $request->phone;
+        $editorial->country = $request->country;
+        // Almacenamos este nuevo registro en la base de datos
+        $editorial->save();
+        // luego de guardamos redireccionamos a la vista del index de editorial
+        return redirect()->action([EditorialController::class, 'index']);
+
     }
 
     /**
@@ -63,7 +74,9 @@ class EditorialController extends Controller
      */
     public function edit($id)
     {
-        //
+        // Primero retornnamos una vista pero como va ser para editar, necesitamos el id especifico para editar
+        $editorial = Editorial::find($id);
+        return view('editorials.edit', ['editorial' => $editorial]);
     }
 
     /**
@@ -76,6 +89,13 @@ class EditorialController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $editorial = Editorial::find($id);
+        $editorial->name = $request->name;
+        $editorial->address = $request->address;
+        $editorial->phone = $request->phone;
+        $editorial->country = $request->country;
+        $editorial->save();
+        return redirect()->action([EditorialController::class, 'index']);
     }
 
     /**

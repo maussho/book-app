@@ -3,14 +3,19 @@
     <title>EDITORIALES</title>
 </header>
 <body>
+ 
     <h2>EDITORIALES</h2>
     <h3>Aqui se mostrarán todas las editoriales</h3>
+    <a href="/editorials/create" class="button">Nueva Editorial</a>
+  
     <table>
         <tr class="titulo">
             <td>Nombre</td>
             <td>Dirección</td>
             <td>Teléfono</td>
-            <td>Country</td>
+            <td>Pais</td>
+            <!-- Nos creamos otro campo para el edit, eliminar -->
+            <td>Acción</td>
         </tr>
 
     <!-- Recooremos la tabla de la base de datos para mostrar los valores -->
@@ -18,20 +23,36 @@
             <tr>
                 <td>{{$editorial->name}}</td>
                 <td>{{$editorial->address}}</td>
-                <td>{{$editorial->name}}</td>
+                <td>{{$editorial->phone}}</td>
                 <td>{{$editorial->country}}</td>
+                <td><a href="/editorials/edit/{{$editorial->id}}">Editar</a></td>
             </tr>
         @endforeach
 
     </table>
 </body>
 <style>
+a.button {
+  margin: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+/* Estilo para el botón en estado 'hover' */
+a.button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
 /* Estilos para el body */
 body {
   font-family: Arial, sans-serif; /* Tipo de fuente */
-  margin: 0; /* Eliminar márgenes predeterminados */
-  padding: 0; /* Eliminar espaciado interno predeterminado */
 }
 
 /* Estilos para las tablas */

@@ -27,6 +27,7 @@ class ProfileController extends Controller
     public function create()
     {
         //
+        return view('profiles.create');
     }
 
     /**
@@ -38,6 +39,12 @@ class ProfileController extends Controller
     public function store(Request $request)
     {
         //
+        $profiles = new Profile();
+        $profiles->biography = $request->biography;
+        $profiles->website = $request->website;
+        $profiles->save();
+
+        return redirect()->action([ProfileController::class, 'index']);
     }
 
     /**

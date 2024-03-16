@@ -6,6 +6,8 @@
 <body>
     <h2>PERFILES</h2>
     <h3>Aqui estan todos los perfiles</h3>
+    <a href="/profiles/create" class="button">Nuevo Perfil</a>
+
     <table>
         <tr class="titulo">
             <td>Biografia</td>
@@ -20,7 +22,24 @@
     </table>
 </body>
 <style>
+a.button {
+  margin: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  border: 2px solid #007bff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
+/* Estilo para el botón en estado 'hover' */
+a.button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
     /* Estilos para el body */
 body {
   font-family: Arial, sans-serif; /* Tipo de fuente */

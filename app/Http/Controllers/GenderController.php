@@ -27,6 +27,7 @@ class GenderController extends Controller
     public function create()
     {
         //
+        return view('genders.create');
     }
 
     /**
@@ -38,6 +39,10 @@ class GenderController extends Controller
     public function store(Request $request)
     {
         //
+        $genders = new Gender();
+        $genders->name = $request->name;
+        $genders->save();
+        return redirect()->action([GenderController::class, 'index']);
     }
 
     /**
