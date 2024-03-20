@@ -67,6 +67,8 @@ class ProfileController extends Controller
     public function edit($id)
     {
         //
+        $profile = Profile::find($id);
+        return view('profiles.edit', ['profile' => $profile]);
     }
 
     /**
@@ -79,6 +81,11 @@ class ProfileController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $profile = Profile::find($id);
+        $profile->biography = $request->biography;
+        $profile->website = $request->website;
+        $profile->save();
+        return redirect()->action([ProfileController::class, 'index']);
     }
 
     /**

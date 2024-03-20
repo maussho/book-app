@@ -43,16 +43,19 @@ Route::put('/books/edit/{id}', [BookController::class, 'update'])->name('books.u
 
 Route::get('/authors', [AuthorController::class, 'index'])->name('authors.index');
 
-
+// Perfiles
 Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
 Route::get('/profiles/create', [ProfileController::class, 'create'])->name('profiles.create');
 Route::post('/profiles/store', [ProfileController::class, 'store'])->name('profiles.store');
+Route::get('/profiles/edit/{id}', [ProfileController::class, 'edit'])->name('profiles.edit');
+Route::put('/profiles/edit/{id}', [ProfileController::class, 'update'])->name('profiles.update');
 
 
 Route::get('/genders',[GenderController::class, 'index'])->name('genders.index');
 Route::get('/genders/create', [GenderController::class, 'create'])->name('genders.create');
-Route::post('genders/create', [GenderController::class,'store'])->name('genders.store');
-
+Route::post('/genders/create', [GenderController::class,'store'])->name('genders.store');
+Route::get('/genders/edit/{id}',[GenderController::class, 'edit'])->name('genders.edit');
+Route::put('/genders/edit/{id}',[GenderController::class, 'update'])->name('genders.update');
 
 Route::get('/users', [UserController::class, 'index'])->name('users.index');
 

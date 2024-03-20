@@ -39,9 +39,9 @@ class GenderController extends Controller
     public function store(Request $request)
     {
         //
-        $genders = new Gender();
-        $genders->name = $request->name;
-        $genders->save();
+        $gender = new Gender();
+        $gender->name = $request->name;
+        $gender->save();
         return redirect()->action([GenderController::class, 'index']);
     }
 
@@ -65,6 +65,8 @@ class GenderController extends Controller
     public function edit($id)
     {
         //
+        $gender = Gender::find($id);
+        return view('genders.edit', ['gender' => $gender]);
     }
 
     /**
@@ -77,6 +79,10 @@ class GenderController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $gender = Gender::find($id);
+        $gender->name = $request->name;
+        $gender->save();
+        return redirect()->action([GenderController::class, 'index']);
     }
 
     /**

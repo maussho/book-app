@@ -11,11 +11,13 @@
     <table>
         <tr class="titulo">
             <td>Nombre</td>
+            <td>Acción</td>
         </tr>
         
         @foreach ($genders as $gender )
         <tr>
             <td>{{$gender->name}}</td>
+            <td><a href="/genders/edit/{{$gender->id}}">Editar</a></td>
         </tr>
         @endforeach
     </table>

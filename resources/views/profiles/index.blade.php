@@ -12,11 +12,13 @@
         <tr class="titulo">
             <td>Biografia</td>
             <td>Página Web</td>
+            <td>Acción</td>
         </tr>
         @foreach ($profiles as $profile)
             <tr>
                 <td>{{$profile->biography}}</td>
                 <td>{{$profile->website}}</td>
+                <td><a href="/profiles/edit/{{$profile->id}}">Editar</a></td>
             </tr>
         @endforeach
     </table>
